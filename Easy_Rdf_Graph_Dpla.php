@@ -13,8 +13,8 @@ class EasyRdf_Graph_Dpla extends EasyRdf_Graph
         $aggs = $this->allOfType($type);
         $sourceResources = array();
         foreach ($aggs as $agg) {
-            //$sourceResources[] = $agg->getResource('http://dp.la/terms/SourceResource'); //fail
-            $sourceResources[] = $agg->getResource(new EasyRdf_Resource('http://dp.la/terms/SourceResource')); //success!
+            $sourceResources[] = $agg->getResource('http://dp.la/terms/SourceResource'); //fail
+            //$sourceResources[] = $agg->getResource(new EasyRdf_Resource('http://dp.la/terms/SourceResource')); //success!
             //$sourceResources[] = $this->getResource($agg, 'http://dp.la/terms/SourceResource'); //fail
             //$sourceResources[] = $this->getSingleProperty($agg, 'http://dp.la/terms/SourceResource', 'resource'); //success!
         }
