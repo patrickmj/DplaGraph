@@ -12,9 +12,16 @@ $dplaGraph->loadFromDplaUrl($graphUrl);
 
 $resources =  $dplaGraph->sourceResources();
 
-$subjects = array();
+$vals = array();
 foreach ($resources as $resource) {
-    $subjects = array_merge($subjects, $dplaGraph->dcSubjectLiterals($resource));
+    $properties = array( 'dc11:publisher');
+    $vals = array_merge($subjects, $dplaGraph->prefLabelsForBNodeObjects($resource, $properties));
 }
 
-print_r($subjects);
+?>
+<pre>
+<?php print_r($vals); ?>
+
+<?php // echo $dplaGraph->serialise('turtle'); ?>
+</pre>
+
